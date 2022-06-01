@@ -31,9 +31,10 @@ int main(int argc, char** argv, char** env)
 
 	Vfull_adder* fa = new Vfull_adder{contextp};
 
-	printf("start unit test for full adder:\n\r");
-
 	/* unit test */
+
+	printf("[full adder] unit test begins.\n\r");
+
 	int test_case_num = sizeof(test_cases) / sizeof(TestCase);
 	for(int i = 0; i < test_case_num; i++) {
 		fa->A = test_cases[i].A;
@@ -50,6 +51,8 @@ int main(int argc, char** argv, char** env)
                                test_cases[i].S, test_cases[i].Cout);
 		}
 	}
+
+	printf("[full adder] uint tests all passed.\n\r");
 
 	delete fa;
 	delete contextp;

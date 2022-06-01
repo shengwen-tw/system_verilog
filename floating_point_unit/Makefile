@@ -24,7 +24,7 @@ build_verilator:
 	verilator $(VERILATOR_FLAGS) --build $(CXX_SRC) $(VERILOG_SRC)
 
 #to run unit test
-build_icarus: $(VERILOG_SRC)
+build_icarus: $(VERILOG_SRC) ./test_bench/test_top.v
 	iverilog $^  -o $(IVERILOG_VVP)
 
 #to generate the dataset for running the unit test

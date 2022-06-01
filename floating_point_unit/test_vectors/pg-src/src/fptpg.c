@@ -24,6 +24,9 @@
 /////////////////////////////////////////////////////////////////////
 
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "milieu.h"
 #include "softfloat.h"
 
@@ -44,9 +47,9 @@ float32 get_pat(int );
 float32 get_pat0(int );
 float32 get_pat1(int );
 float32 get_pat2(int );
+int do_fcmp(int count);
 
-
-main(int argc, char **argv)
+int main(int argc, char **argv)
 {
 int	i;
 int	count=25;
@@ -194,7 +197,7 @@ return(0);
 int arop(int count, int op) {
 float32 f1, f2, f3, f4;
 int	i;
-int	fp;
+FILE	*fp;
 char	*mode;
 int	add=0;
 int	sub=0;
@@ -362,7 +365,7 @@ for(i=0;i<count;i++) {
    }
 
 
-close(fp);
+fclose(fp);
 
 if(!quiet) {
 	printf("Found %d errors\n",err_count);
@@ -375,10 +378,10 @@ return(0);
 
 
 
-do_fcmp(int count) {
+int do_fcmp(int count) {
 float32 f1, f2, f3, f4;
 int	i;
-int	fp;
+FILE	*fp;
 char	*mode;
 int	err;
 int	err_count=0;
@@ -437,7 +440,7 @@ for(i=0;i<count;i++) {
 	fprintf(fp,"%02x%08x%08x%01x\n",  float_exception_flags, f1, f2, result);
 	}
 
-close(fp);
+fclose(fp);
 
 if(!quiet) {
 	printf("Found %d errors\n",err_count);

@@ -12,10 +12,13 @@ VERILOG_SRC=./verilog/ \
 build: $(VERILOG_SRC)
 	iverilog $^  -o $(IVERILOG_VVP)
 
+gen_test:
+	@$(MAKE) -C test_vectors -f Makefile
+
 run: $(IVERILOG_VVP)
 	vvp $^
 
 clean:
 	rm -rf $(IVERILOG_VVP)
 
-.PHONY: build run clean
+.PHONY: build run clean unit_test

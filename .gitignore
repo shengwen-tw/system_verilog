@@ -1,3 +1,11 @@
 obj_dir/
 *.sw*
 *.vvp
+pg
+combo/
+fcmp/
+rdown/
+rtne/
+rtzero/
+rup/
+

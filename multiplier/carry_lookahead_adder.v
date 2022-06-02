@@ -1,18 +1,3 @@
-/* 1-bit adder without carry out */
-module adder(a, b, cin, s);
-
-input a;
-input b;
-input cin;
-output s;
-
-wire xor1_out;
-
-xor xor1(xor1_out, a, b);
-xor xor2(s, xor1_out, cin);
-
-endmodule
-
 /* 4-bits carry-lookahead adder */
 module cla_4bits(a, b, s, cin, cout);
 
@@ -36,11 +21,7 @@ assign c[3] = g[2] | (p[2] & g[1]) | (p[2] & p[1] & g[0]) |
 assign c[4] = g[3] | (p[3] & g[2]) | (p[3] & p[2] & g[1]) |
               (p[3] & p[2] & p[1] & g[0]) | (p[3] & p[2] & p[1] & p[0] & c[0]);
 
-/* adders run in parallel */
-adder a1(a[0], b[0], c[0], s[0]);
-adder a2(a[1], b[1], c[1], s[1]);
-adder a3(a[2], b[2], c[2], s[2]);
-adder a4(a[3], b[3], c[3], s[3]);
+assign s = p ^ c[3:0];
 
 assign cout = c[4];
 

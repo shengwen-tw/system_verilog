@@ -16,7 +16,7 @@ bool test_multiplier(Vmultiplier* mul, uint8_t a, uint8_t b)
 		printf("[multiplier] %d * %d = %d\n", a, b, mul->result);
 		return true;
 	} else {
-		printf("[error] %d * %d = %d\n (expect: %d)",
+		printf("[error] %d * %d = %d (expect: %d)\n",
                        a, b, mul->result, true_ans);
 		return false;
 	}

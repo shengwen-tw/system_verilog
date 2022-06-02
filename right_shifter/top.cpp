@@ -18,8 +18,7 @@ bool test_right_shifter(Vrshifter* rsh, uint8_t data, uint8_t bits)
 		return true;
 	} else {
 		printf("[error] %d >> %d = %d (expect %d)\n",
-                       rsh->data_in, rsh->bits, rsh->data_out,
-                       rsh->data_in >> rsh->bits);
+                       rsh->data_in, rsh->bits, rsh->data_out, true_ans);
 		return false;
 	}
 }
@@ -46,7 +45,7 @@ int main(int argc, char** argv, char** env)
 		}
 	}
 
-	printf("[right shifter] uint tests all passed.\n\r");
+	printf("[right shifter] unit tests all passed.\n\r");
 
 	delete rsh;
 	delete contextp;

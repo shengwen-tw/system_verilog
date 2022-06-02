@@ -1,8 +1,8 @@
 CXX_SRC=top.cpp
-VERILOG_SRC=multiplier.v mux2.v lshifter.v full_adder.v ripple_carry_adder.v
+VERILOG_SRC=multiplier.v lshifter.v full_adder.v ripple_carry_adder.v
 VERILATOR_FLAGS=-top-module multiplier \
 		-CFLAGS "-std=c++17" \
-		-Wall -Wno-UNUSED -Wno-UNOPTFLAT \
+		-Wall -Wno-UNUSED -Wno-UNOPTFLAT -Wno-DECLFILENAME \
 		--cc --exe
 
 build:

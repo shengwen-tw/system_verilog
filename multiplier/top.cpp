@@ -44,7 +44,7 @@ int main(int argc, char** argv, char** env)
 		}
 	}
 
-	printf("[multimplier] unit tests all passed.\n\r");
+	printf("[multiplier] unit tests all passed.\n\r");
 
 	delete mul;
 	delete contextp;

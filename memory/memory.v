@@ -16,10 +16,10 @@ reg [data_width-1:0] buffer;
 
 always @(posedge clk) begin
 	if(reset == 1) begin
-		mem[0] <= 8'h0;
-		mem[1] <= 8'h0;
-		mem[2] <= 8'h0;
-		mem[3] <= 8'h0;
+		integer i;
+		for(i=0; i<mem_size; i=i+1) begin
+			assign mem[i] = 8'h0;
+		end
 	end
 	else if(cs == 1 && rw == 1) begin //rw == 0: write mode
 		mem[addr] <= data;

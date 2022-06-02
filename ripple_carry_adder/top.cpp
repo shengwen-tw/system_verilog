@@ -26,10 +26,10 @@ int main(int argc, char** argv, char** env)
 
 			uint8_t true_ans = i + j;
 			if(rca->s == true_ans) {
-				printf("[passed] %d, b=%d => s=%d\n",
+				printf("[passed] %d + %d = %d\n",
                                        rca->a, rca->b, rca->s);
 			} else {
-				printf("[failed] a=%d, B=%d => s=%d (expect s=%d)\n",
+				printf("[failed] %d + B=%d = %d (expect s=%d)\n",
                                        rca->a, rca->b, rca->s, true_ans);
 
 				delete rca;

@@ -33,7 +33,7 @@ assign Cin[0] = 1'b0;
 genvar i;
 generate
 	for(i = 0; i < bit_width; i++) begin
-		full_adder fa2(a[i], b[i], Cin[i], s[i], Cin[i+1]);
+		full_adder fa(a[i], b[i], Cin[i], s[i], Cin[i+1]);
 	end
 endgenerate
 

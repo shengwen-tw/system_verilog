@@ -45,7 +45,7 @@ int main(int argc, char** argv, char** env)
 		}
 	}
 
-	printf("[left shifter] uint tests all passed.\n\r");
+	printf("[left shifter] unit tests all passed.\n\r");
 
 	delete lsh;
 	delete contextp;

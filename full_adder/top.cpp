@@ -6,11 +6,11 @@ using namespace std;
 
 struct TestCase {
 	const char* name;
-	uint8_t A;
-	uint8_t B;
-	uint8_t Cin;
-	uint8_t S;
-	uint8_t Cout;
+	uint8_t a;
+	uint8_t b;
+	uint8_t cin;
+	uint8_t s;
+	uint8_t cout;
 };
 
 struct TestCase test_cases[] = {
@@ -37,22 +37,22 @@ int main(int argc, char** argv, char** env)
 
 	int test_case_num = sizeof(test_cases) / sizeof(TestCase);
 	for(int i = 0; i < test_case_num; i++) {
-		fa->A = test_cases[i].A;
-		fa->B = test_cases[i].B;
-		fa->Cin = test_cases[i].Cin;
+		fa->a = test_cases[i].a;
+		fa->b = test_cases[i].b;
+		fa->cin = test_cases[i].cin;
 		fa->eval();
 
-		if((fa->S == test_cases[i].S) && (fa->Cout == test_cases[i].Cout)) {
-			printf("[passed] A=%d, B=%d, Cin=%d -> S=%d, Cout=%d\n",
-                               fa->A, fa->B, fa->Cin, fa->S, fa->Cout);
+		if((fa->s == test_cases[i].s) && (fa->cout == test_cases[i].cout)) {
+			printf("[passed] a=%d, b=%d, cin=%d -> S=%d, cout=%d\n",
+                               fa->a, fa->b, fa->cin, fa->s, fa->cout);
 		} else {
-			printf("[failed] A=%d, B=%d, Cin=%d -> S=%d, Cout=%d (expected S=%d, Cout=%d)\n",
-                               fa->A, fa->B, fa->Cin, fa->S, fa->Cout,
-                               test_cases[i].S, test_cases[i].Cout);
+			printf("[failed] a=%d, b=%d, cin=%d -> s=%d, cout=%d (expected s=%d, cout=%d)\n",
+                               fa->a, fa->b, fa->cin, fa->s, fa->cout,
+                               test_cases[i].s, test_cases[i].cout);
 		}
 	}
 
-	printf("[full adder] uint tests all passed.\n\r");
+	printf("[full adder] unit tests all passed.\n\r");
 
 	delete fa;
 	delete contextp;

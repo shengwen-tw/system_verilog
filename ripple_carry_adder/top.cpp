@@ -20,17 +20,17 @@ int main(int argc, char** argv, char** env)
 
 	for(int i = 0; i < test_range; i++) {
 		for(int j = 0; j < test_range; j++) {
-			rca->A = i;
-			rca->B = j;
+			rca->a = i;
+			rca->b = j;
 			rca->eval();
 
 			uint8_t true_ans = i + j;
-			if(rca->S == true_ans) {
-				printf("[passed] A=%d, B=%d => S=%d\n",
-                                       rca->A, rca->B, rca->S);
+			if(rca->s == true_ans) {
+				printf("[passed] %d, b=%d => s=%d\n",
+                                       rca->a, rca->b, rca->s);
 			} else {
-				printf("[failed] A=%d, B=%d => S=%d (expect S=%d)\n",
-                                       rca->A, rca->B, rca->S, true_ans);
+				printf("[failed] a=%d, B=%d => s=%d (expect s=%d)\n",
+                                       rca->a, rca->b, rca->s, true_ans);
 
 				delete rca;
 				delete contextp;
@@ -40,7 +40,7 @@ int main(int argc, char** argv, char** env)
 		}
 	}
 
-	printf("[ripple carry adder] uint tests all passed.\n\r");
+	printf("[ripple carry adder] unit tests all passed.\n\r");
 
 	delete rca;
 	delete contextp;

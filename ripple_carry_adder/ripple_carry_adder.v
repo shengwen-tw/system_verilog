@@ -18,25 +18,26 @@ or or1(cout, and1_out, and2_out);
 endmodule
 
 /* ripple carry adder for 8-bits addition */
-module ripple_carry_adder(a, b, s, cout);
+module ripple_carry_adder(a, b, s, cin, cout);
 
 parameter bit_width = 8;
 
 input  [bit_width-1:0] a;
 input  [bit_width-1:0] b;
+input  cin;
 output [bit_width-1:0] s = 0;
 output cout = 0;
 
-wire   [bit_width:0] Cin;
-assign Cin[0] = 1'b0;
+wire   [bit_width:0] c;
+assign c[0] = cin;
 
 genvar i;
 generate
 	for(i = 0; i < bit_width; i++) begin
-		full_adder fa(a[i], b[i], Cin[i], s[i], Cin[i+1]);
+		full_adder fa(a[i], b[i], c[i], s[i], c[i+1]);
 	end
 endgenerate
 
-assign cout = Cin[bit_width];
+assign cout = c[bit_width];
 
 endmodule

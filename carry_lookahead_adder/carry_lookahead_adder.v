@@ -28,16 +28,17 @@ assign cout = c[4];
 endmodule
 
 /* 8-bits carry-lookahead adder */
-module carry_lookahead_adder(a, b, s, cout);
+module carry_lookahead_adder(a, b, s, cin, cout);
 
 input  [7:0] a;
 input  [7:0] b;
+input  cin;
 output [7:0] s;
 output cout;
 
 wire c[2:0];
 
-assign c[0] = 1'b0;
+assign c[0] = cin;
 
 /* cascade 2 4-bits cla with ripple carry adder scheme */
 cla_4bits cla4_1(a[3:0], b[3:0], s[3:0], c[0], c[1]);

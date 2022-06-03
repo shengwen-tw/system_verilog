@@ -16,12 +16,11 @@ int main(int argc, char** argv, char** env)
 
 	printf("[ripple carry adder] unit test begins.\n\r");
 
-	int test_range = UCHAR_MAX;
-
-	for(int i = 0; i < test_range; i++) {
-		for(int j = 0; j < test_range; j++) {
+	for(int i = 0; i <= UCHAR_MAX; i++) {
+		for(int j = 0; j <= UCHAR_MAX; j++) {
 			rca->a = i;
 			rca->b = j;
+			rca->cin = 0;
 			rca->eval();
 
 			uint8_t true_ans = i + j;

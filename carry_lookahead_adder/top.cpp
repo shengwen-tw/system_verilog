@@ -22,14 +22,15 @@ int main(int argc, char** argv, char** env)
 		for(int j = 0; j < test_range; j++) {
 			cla->a = i;
 			cla->b = j;
+			cla->cin = 0;
 			cla->eval();
 
 			uint8_t true_ans = i + j;
 			if(cla->s == true_ans) {
-				printf("[passed] a=%d, b=%d => s=%d\n",
+				printf("[passed] %d + %d = %d\n",
                                        cla->a, cla->b, cla->s);
 			} else {
-				printf("[failed] a=%d, b=%d => s=%d (expect s=%d)\n",
+				printf("[failed] %d + %d = %d (expect s=%d)\n",
                                        cla->a, cla->b, cla->s, true_ans);
 
 				delete cla;

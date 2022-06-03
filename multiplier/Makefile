@@ -2,7 +2,8 @@ CXX_SRC=top.cpp
 VERILOG_SRC=multiplier.v lshifter.v
 VERILATOR_FLAGS=-top-module multiplier \
 		-CFLAGS "-std=c++17" \
-		-Wall -Wno-UNUSED -Wno-UNOPTFLAT -Wno-DECLFILENAME \
+		-Wall -Wno-UNUSED -Wno-UNOPTFLAT \
+		-Wno-PINCONNECTEMPTY -Wno-DECLFILENAME \
 		--cc --exe
 
 build:

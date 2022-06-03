@@ -11,7 +11,6 @@ wire [bit_width-1:0] t[bit_width];
 wire [bit_width-1:0] shift_t[bit_width];
 wire [bit_width-1:0] adder_stage1[4];
 wire [bit_width-1:0] adder_stage2[2];
-reg [6:0] carry_out;
 
 genvar i;
 generate
@@ -31,17 +30,17 @@ generate
 endgenerate
 
 //stage1 adder
-carry_lookahead_adder rca1_1(shift_t[0], shift_t[1], adder_stage1[0], carry_out[0]);
-carry_lookahead_adder rca1_2(shift_t[2], shift_t[3], adder_stage1[1], carry_out[1]);
-carry_lookahead_adder rca1_3(shift_t[4], shift_t[5], adder_stage1[2], carry_out[2]);
-carry_lookahead_adder rca1_4(shift_t[6], shift_t[7], adder_stage1[3], carry_out[3]);
+carry_lookahead_adder rca1_1(shift_t[0], shift_t[1], adder_stage1[0], .cin(1'b0), .cout());
+carry_lookahead_adder rca1_2(shift_t[2], shift_t[3], adder_stage1[1], .cin(1'b0), .cout());
+carry_lookahead_adder rca1_3(shift_t[4], shift_t[5], adder_stage1[2], .cin(1'b0), .cout());
+carry_lookahead_adder rca1_4(shift_t[6], shift_t[7], adder_stage1[3], .cin(1'b0), .cout());
 
 //stage2 adder
-carry_lookahead_adder rca2_1(adder_stage1[0], adder_stage1[1], adder_stage2[0], carry_out[4]);
-carry_lookahead_adder rca2_2(adder_stage1[2], adder_stage1[3], adder_stage2[1], carry_out[5]);
+carry_lookahead_adder rca2_1(adder_stage1[0], adder_stage1[1], adder_stage2[0], .cin(1'b0), .cout());
+carry_lookahead_adder rca2_2(adder_stage1[2], adder_stage1[3], adder_stage2[1], .cin(1'b0), .cout());
 
 //stage3 adder
-carry_lookahead_adder rca3_1(adder_stage2[0], adder_stage2[1], result, carry_out[6]);
+carry_lookahead_adder rca3_1(adder_stage2[0], adder_stage2[1], result, .cin(1'b0), .cout());
 
 /* alternatively: */
 //assign result = t[0] + (t[1] << 1) + (t[2] << 2) +

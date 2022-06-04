@@ -1,13 +1,16 @@
 /* 4-bits divider with iterative subtration method */
-module divider_4_bits(a, b, quotient, remainder);
+module divider_4_bits(a, b, quotient, remainder, div_by_zero);
 
 input  [3:0] a;
 input  [3:0] b;
 output [3:0] quotient;
 output [3:0] remainder;
+output div_by_zero;
 
 wire   [3:0] q;
 wire   [3:0] r0, r1, r2, r3;
+
+assign div_by_zero = (b == 4'b0000) ? 1'b1 : 1'b0;
 
 divider_sub_stage s1({3'b000, a[3]},  b[3:0], q[3], r1);
 divider_sub_stage s2({r1[2:0], a[2]}, b[3:0], q[2], r2);

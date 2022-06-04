@@ -11,6 +11,19 @@ bool test_divider(Vdivider_4_bits* div, uint8_t a, uint8_t b)
 	div->b = b;
 	div->eval();
 
+	/* test divide by zero */
+	if(b == 0) {
+		if(div->div_by_zero == 1) {
+			printf("[passed] a=%d, b=%d, div_by_zero=%d\n", a, b, div->div_by_zero);
+			return true;
+		} else {
+			printf("[passed] a=%d, b=%d, div_by_zero=%d (expect div_by_zero=1)\n",
+                               a, b, div->div_by_zero);
+			return false;
+		}
+	}
+
+	/* test proper values */
 	uint8_t true_q = (a / b) << 4 >> 4;
 	uint8_t true_r = (a % b);
 
@@ -19,7 +32,7 @@ bool test_divider(Vdivider_4_bits* div, uint8_t a, uint8_t b)
                        a, b, div->quotient, div->remainder);
 		return true;
 	} else {
-		printf("[failed] a=%d, b=%d => q=%d, r:%d (expect: q=%d, r=)\n",
+		printf("[failed] a=%d, b=%d => q=%d, r:%d (expect: q=%d, r=%d)\n",
                        a, b, div->quotient, div->remainder, true_q, true_r);
 		return false;
 	}
@@ -36,12 +49,10 @@ int main(int argc, char** argv, char** env)
 
 	printf("[4-bits divider] unit test begins.\n\r");
 
-	test_divider(div, 15, 7);
-
-	int test_range = 15;
-
-	for(int i = 1; i < test_range; i++) {
-		for(int j = 1; j < test_range; j++) {
+	int range_min = 0;
+	int range_max = 15;
+	for(int i = range_min; i < range_max; i++) {
+		for(int j = range_min; j < range_max; j++) {
 			bool correct = test_divider(div, i, j);
 			if(correct == false) {
 				delete div;
@@ -50,7 +61,6 @@ int main(int argc, char** argv, char** env)
 			}
 		}
 	}
-
 
 	printf("[4-bits divider] unit tests all passed.\n\r");
 

@@ -1,6 +1,7 @@
 obj_dir/
 *.sw*
 *.vvp
+*.vcd
 pg
 combo/
 fcmp/

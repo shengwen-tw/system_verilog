@@ -33,9 +33,9 @@ wire   [3:0] s;     //substraction result
 
 wire carry_out;
 
-/* 4-bits substractor:
+/* 4-bits subtractor:
    different to the textbook, we use the cla with xor instead of
-   using the full-substractor, therefore the q will be inverted */
+   using the full-subtractor, therefore the q will be inverted */
 assign xor_b = b ^ 4'b1111;
 cla_4bits cla(.a(a), .b(xor_b), .s(s), .cin(1'b1), .cout(carry_out));
 assign q = ~carry_out;

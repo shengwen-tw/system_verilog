@@ -1,4 +1,4 @@
-module substractor(a, b, s, cout);
+module subtractor(a, b, s, cout);
 
 parameter bit_width = 8;
 

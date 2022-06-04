@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <limits.h>
-#include "Vsubstractor.h"
+#include "Vsubtractor.h"
 #include "verilated.h"
 
 using namespace std;
@@ -10,7 +10,7 @@ int main(int argc, char** argv, char** env)
 	VerilatedContext* contextp = new VerilatedContext;
 	contextp->commandArgs(argc, argv);
 
-	Vsubstractor* sub = new Vsubstractor{contextp};
+	Vsubtractor* sub = new Vsubtractor{contextp};
 
 	/* unit test */
 

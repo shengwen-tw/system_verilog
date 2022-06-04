@@ -1,7 +1,7 @@
 CXX_SRC=top.cpp
-VERILOG_SRC=carry_lookahead_adder.v substractor.v 
+VERILOG_SRC=carry_lookahead_adder.v subtractor.v 
 
-VERILATOR_FLAGS=-top-module substractor \
+VERILATOR_FLAGS=-top-module subtractor \
 		-CFLAGS "-std=c++17" \
 		-Wall -Wno-UNOPTFLAT -Wno-DECLFILENAME \
                 --cc --exe

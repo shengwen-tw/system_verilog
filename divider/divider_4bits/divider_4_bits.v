@@ -29,7 +29,7 @@ output q;
 output [3:0] r;
 
 wire   [3:0] xor_b; //1's complement
-wire   [3:0] s;     //substraction result
+wire   [3:0] s;     //subtraction result
 
 wire carry_out;
 

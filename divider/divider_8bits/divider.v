@@ -40,7 +40,7 @@ output q;
 output [bit_width-1:0] r;
 
 wire   [bit_width-1:0] xor_b; //1's complement
-wire   [bit_width-1:0] s;     //substraction result
+wire   [bit_width-1:0] s;     //subtraction result
 wire   [2:0] c;
 
 /* 8-bits subtractor:

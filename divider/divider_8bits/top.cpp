@@ -47,7 +47,7 @@ int main(int argc, char** argv, char** env)
 
 	/* unit test */
 
-	printf("[4-bits divider] unit test begins.\n\r");
+	printf("[8-bits divider] unit test begins.\n\r");
 
 	int range_min = 0;
 	int range_max = UCHAR_MAX;
@@ -62,7 +62,7 @@ int main(int argc, char** argv, char** env)
 		}
 	}
 
-	printf("[4-bits divider] unit tests all passed.\n\r");
+	printf("[8-bits divider] unit tests all passed.\n\r");
 
 	delete div;
 	delete contextp;

@@ -14,7 +14,7 @@ int main(int argc, char** argv, char** env)
 
 	/* unit test */
 
-	printf("[substractor] unit test begins.\n\r");
+	printf("[subtractor] unit test begins.\n\r");
 
 	for(int i = CHAR_MIN; i <= CHAR_MAX; i++) {
 		for(int j = CHAR_MIN; j <= CHAR_MAX; j++) {
@@ -39,7 +39,7 @@ int main(int argc, char** argv, char** env)
 		}
 	}
 
-	printf("[substractor] unit tests all passed.\n\r");
+	printf("[subtractor] unit tests all passed.\n\r");
 
 	delete sub;
 	delete contextp;

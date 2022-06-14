@@ -19,6 +19,7 @@ reg [$clog2(depth)-1:0] wr_ptr = {$clog2(depth){1'b0}};
 reg [$clog2(depth)-1:0] rd_ptr = {$clog2(depth){1'b0}};
 
 always @(posedge clk or negedge rst_n) begin
+	/* reset */
 	if(!rst_n) begin
 		cnt <= 0;
 		rd_data <= 0;
@@ -26,7 +27,7 @@ always @(posedge clk or negedge rst_n) begin
 		rd_ptr <= 0;
 	end
 	else begin
-		/*write data */
+		/* write data */
 		if (wr_en) begin
 			fifo[wr_ptr] <= wr_data;
 			if(wr_ptr == (depth-1))
